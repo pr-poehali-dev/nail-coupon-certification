@@ -1,0 +1,577 @@
+/* ===== СТРАНИЦА ===== */
+.cert-page {
+  min-height: 100vh;
+  background: #f5f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.cert-page-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.cert-page-title {
+  font-family: "Cormorant", serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: #1a1a1a;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.cert-page-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #888;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+}
+
+/* ===== СЦЕНА ДЛЯ 3D ПЕРЕВОРОТА ===== */
+.certificate-scene {
+  width: 720px;
+  height: 288px;
+  perspective: 1200px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.certificate-card {
+  width: 720px;
+  height: 288px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.certificate-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+/* ===== ГРАНИ КАРТОЧКИ ===== */
+.certificate-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  background: #ffffff;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.certificate-back {
+  transform: rotateY(180deg);
+}
+
+/* ===== ДЕКОРАТИВНЫЙ ФОН ===== */
+.cert-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(
+      circle at 85% 50%,
+      rgba(124, 58, 237, 0.04) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(124, 58, 237, 0.03) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+.cert-bg-pattern::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 24px,
+    rgba(0, 0, 0, 0.015) 24px,
+    rgba(0, 0, 0, 0.015) 25px
+  );
+}
+
+.cert-bg-pattern-back {
+  background-image:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(124, 58, 237, 0.05) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(124, 58, 237, 0.03) 0%,
+      transparent 50%
+    );
+}
+
+/* ===== УГЛОВЫЕ УКРАШЕНИЯ ===== */
+.cert-corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  z-index: 2;
+}
+
+.cert-corner::before,
+.cert-corner::after {
+  content: "";
+  position: absolute;
+  background: #7c3aed;
+}
+
+.cert-corner::before {
+  width: 100%;
+  height: 1px;
+}
+.cert-corner::after {
+  width: 1px;
+  height: 100%;
+}
+
+.cert-corner-tl {
+  top: 16px;
+  left: 82px;
+}
+.cert-corner-tl::before {
+  top: 0;
+  left: 0;
+}
+.cert-corner-tl::after {
+  top: 0;
+  left: 0;
+}
+
+.cert-corner-tr {
+  top: 16px;
+  right: 16px;
+}
+.cert-corner-tr::before {
+  top: 0;
+  right: 0;
+}
+.cert-corner-tr::after {
+  top: 0;
+  right: 0;
+}
+
+.cert-corner-bl {
+  bottom: 16px;
+  left: 82px;
+}
+.cert-corner-bl::before {
+  bottom: 0;
+  left: 0;
+}
+.cert-corner-bl::after {
+  bottom: 0;
+  left: 0;
+}
+
+.cert-corner-br {
+  bottom: 16px;
+  right: 16px;
+}
+.cert-corner-br::before {
+  bottom: 0;
+  right: 0;
+}
+.cert-corner-br::after {
+  bottom: 0;
+  right: 0;
+}
+
+/* ===== ЛЕВАЯ/ПРАВАЯ ПОЛОСКА-КОРЕШОК ===== */
+.cert-left-strip,
+.cert-right-strip {
+  width: 52px;
+  min-width: 52px;
+  background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.cert-right-strip {
+  order: 2;
+}
+
+.cert-notch {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #f5f5f7;
+  border-radius: 50%;
+  z-index: 3;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.cert-notch-top {
+  top: -10px;
+}
+.cert-notch-bottom {
+  bottom: -10px;
+}
+
+.cert-strip-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.cert-strip-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: "Montserrat", sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.cert-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.cert-main-back {
+  padding: 22px 24px;
+}
+
+/* ===== ШАПКА ===== */
+.cert-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cert-logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cert-logo-icon {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(124, 58, 237, 0.04);
+}
+
+.cert-nail-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.cert-salon-name {
+  font-family: "Cormorant", serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.cert-salon-tagline {
+  font-family: "Montserrat", sans-serif;
+  font-size: 8px;
+  font-weight: 400;
+  color: #888;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ===== ДЕЛИТЕЛЬ ===== */
+.cert-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.cert-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4d0e0, transparent);
+}
+
+.cert-divider-diamond {
+  font-size: 7px;
+  color: #7c3aed;
+  line-height: 1;
+}
+
+/* ===== ЦЕНТРАЛЬНЫЙ БЛОК ===== */
+.cert-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  gap: 4px;
+}
+
+.cert-gift-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: #7c3aed;
+  text-transform: uppercase;
+}
+
+.cert-price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.cert-price-value {
+  font-family: "Cormorant", serif;
+  font-size: 64px;
+  font-weight: 300;
+  color: #1a1a1a;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.cert-price-currency {
+  font-family: "Cormorant", serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: #7c3aed;
+  line-height: 1;
+}
+
+.cert-price-desc {
+  font-family: "Montserrat", sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  color: #aaa;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ===== ФУТЕР ===== */
+.cert-footer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.cert-footer-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cert-footer-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.cert-footer-value {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a1a;
+  letter-spacing: 0.05em;
+}
+
+.cert-footer-divider {
+  width: 1px;
+  height: 28px;
+  background: #e0e0e0;
+}
+
+/* ===== ОБРАТНАЯ СТОРОНА ===== */
+.cert-back-header {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cert-back-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 8px;
+  font-weight: 400;
+  color: #888;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.cert-back-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.cert-qr-section {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+}
+
+.cert-qr-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.cert-qr-img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  display: block;
+}
+
+.cert-qr-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 7px;
+  font-weight: 500;
+  color: #aaa;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.cert-terms {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+}
+
+.cert-term-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: #444;
+  line-height: 1.4;
+}
+
+.cert-term-dot {
+  font-size: 5px;
+  color: #7c3aed;
+  flex-shrink: 0;
+  position: relative;
+  top: -1px;
+}
+
+/* ===== КОНТАКТЫ ===== */
+.cert-contacts {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cert-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: #555;
+  letter-spacing: 0.02em;
+}
+
+.cert-contact-icon {
+  color: #7c3aed;
+  flex-shrink: 0;
+}
+
+.cert-contact-separator {
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ===== ПОДСКАЗКА ===== */
+.cert-flip-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: #bbb;
+  letter-spacing: 0.1em;
+  transition: color 0.2s;
+}
+
+.certificate-scene:hover .cert-flip-hint {
+  color: #7c3aed;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 780px) {
+  .certificate-scene,
+  .certificate-card {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .certificate-card {
+    min-height: 220px;
+  }
+
+  .cert-price-value {
+    font-size: 44px;
+  }
+
+  .cert-price-currency {
+    font-size: 26px;
+  }
+}
