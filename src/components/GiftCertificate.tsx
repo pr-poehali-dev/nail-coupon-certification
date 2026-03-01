@@ -103,66 +103,38 @@ const GiftCertificate = () => {
 
           {/* Основное содержимое обратной стороны */}
           <div className="cert-main cert-main-back">
-            <div className="cert-back-header">
-              <div className="cert-salon-name" style={{ fontSize: "22px" }}>NAIL STUDIO</div>
-              <div className="cert-back-subtitle">Условия использования сертификата</div>
+            <div className="cert-back-logo">
+              <div className="cert-logo-icon" style={{ width: 36, height: 36 }}>
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="cert-nail-icon">
+                  <ellipse cx="20" cy="12" rx="8" ry="10" stroke="#7c3aed" strokeWidth="1.5" fill="none"/>
+                  <path d="M12 12 Q12 28 20 32 Q28 28 28 12" stroke="#7c3aed" strokeWidth="1.5" fill="none"/>
+                  <path d="M15 8 Q20 5 25 8" stroke="#7c3aed" strokeWidth="1" fill="none"/>
+                  <ellipse cx="20" cy="10" rx="5" ry="6" fill="rgba(124,58,237,0.08)"/>
+                </svg>
+              </div>
+              <div className="cert-salon-name" style={{ fontSize: "20px" }}>NAIL STUDIO</div>
+              <div className="cert-salon-tagline">профессиональный маникюр</div>
             </div>
 
-            <div className="cert-divider">
-              <div className="cert-divider-line" />
-              <div className="cert-divider-diamond">◆</div>
-              <div className="cert-divider-line" />
-            </div>
-
-            <div className="cert-back-content">
-              {/* QR код */}
-              <div className="cert-qr-section">
-                <div className="cert-qr-wrapper">
-                  <img
-                    src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://t.me/nailstudio&color=1a1a1a&bgcolor=ffffff&qzone=1"
-                    alt="QR код группы"
-                    className="cert-qr-img"
-                  />
-                  <div className="cert-qr-label">Наша группа</div>
-                </div>
-
-                {/* Условия */}
-                <div className="cert-terms">
-                  <div className="cert-term-item">
-                    <span className="cert-term-dot">◆</span>
-                    <span>Сертификат не суммируется со скидками</span>
-                  </div>
-                  <div className="cert-term-item">
-                    <span className="cert-term-dot">◆</span>
-                    <span>Обмен на денежные средства невозможен</span>
-                  </div>
-                  <div className="cert-term-item">
-                    <span className="cert-term-dot">◆</span>
-                    <span>Запись по предварительному согласованию</span>
-                  </div>
-                  <div className="cert-term-item">
-                    <span className="cert-term-dot">◆</span>
-                    <span>Сертификат действителен однократно</span>
-                  </div>
-                </div>
+            <div className="cert-back-center">
+              <div className="cert-qr-wrapper">
+                <img
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://t.me/nailstudio&color=1a1a1a&bgcolor=ffffff&qzone=1"
+                  alt="QR код группы"
+                  className="cert-qr-img"
+                />
+                <div className="cert-qr-label">Наша группа</div>
               </div>
             </div>
 
-            <div className="cert-divider">
-              <div className="cert-divider-line" />
-              <div className="cert-divider-diamond">◆</div>
-              <div className="cert-divider-line" />
-            </div>
-
-            {/* Контакты */}
             <div className="cert-contacts">
               <div className="cert-contact-item">
-                <Icon name="Phone" size={13} className="cert-contact-icon" />
+                <Icon name="Phone" size={12} className="cert-contact-icon" />
                 <span>+7 (000) 000-00-00</span>
               </div>
               <div className="cert-contact-separator">·</div>
               <div className="cert-contact-item">
-                <Icon name="MapPin" size={13} className="cert-contact-icon" />
+                <Icon name="MapPin" size={12} className="cert-contact-icon" />
                 <span>г. Москва, ул. Красивая, 1</span>
               </div>
             </div>
