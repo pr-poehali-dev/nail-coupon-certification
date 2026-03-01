@@ -3,11 +3,10 @@
   min-height: 100vh;
   background: linear-gradient(
     135deg,
-    #1a1a2e 0%,
-    #2d1b4e 30%,
-    #3b1f6b 55%,
-    #1a1a2e 80%,
-    #0d0d1a 100%
+    #e8e2f5 0%,
+    #f0ecfa 40%,
+    #e4ddf0 70%,
+    #ede6f7 100%
   );
   display: flex;
   align-items: center;
@@ -27,7 +26,7 @@
   font-family: "Cormorant", serif;
   font-size: 32px;
   font-weight: 400;
-  color: #f0eeff;
+  color: #1a1a1a;
   letter-spacing: 0.05em;
   margin: 0;
 }
@@ -36,7 +35,7 @@
   font-family: "Montserrat", sans-serif;
   font-size: 11px;
   font-weight: 400;
-  color: rgba(200, 185, 240, 0.6);
+  color: #9b89c4;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin: 0 0 24px;
@@ -76,11 +75,11 @@
   border-radius: 12px;
   overflow: hidden;
   display: flex;
-  background: #ffffff;
+  background: linear-gradient(145deg, #1c1028 0%, #251535 50%, #1a0f2e 100%);
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.12),
-    0 4px 16px rgba(0, 0, 0, 0.08),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+    0 20px 60px rgba(80, 30, 140, 0.25),
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(124, 58, 237, 0.15);
 }
 
 .certificate-back {
@@ -294,12 +293,12 @@
 .cert-logo-icon {
   width: 44px;
   height: 44px;
-  border: 1px solid rgba(124, 58, 237, 0.3);
+  border: 1px solid rgba(167, 139, 250, 0.35);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(124, 58, 237, 0.04);
+  background: rgba(124, 58, 237, 0.12);
 }
 
 .cert-nail-icon {
@@ -311,7 +310,7 @@
   font-family: "Cormorant", serif;
   font-size: 18px;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #f0eeff;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   line-height: 1.1;
@@ -321,7 +320,7 @@
   font-family: "Montserrat", sans-serif;
   font-size: 8px;
   font-weight: 400;
-  color: #888;
+  color: rgba(200, 185, 240, 0.5);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   margin-top: 2px;
@@ -338,12 +337,17 @@
 .cert-divider-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #d4d0e0, transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(124, 58, 237, 0.3),
+    transparent
+  );
 }
 
 .cert-divider-diamond {
   font-size: 7px;
-  color: #7c3aed;
+  color: #a78bfa;
   line-height: 1;
 }
 
@@ -362,7 +366,7 @@
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.3em;
-  color: #7c3aed;
+  color: #a78bfa;
   text-transform: uppercase;
 }
 
@@ -376,7 +380,7 @@
   font-family: "Cormorant", serif;
   font-size: 64px;
   font-weight: 300;
-  color: #1a1a1a;
+  color: #f0eeff;
   line-height: 1;
   letter-spacing: -0.02em;
 }
@@ -385,7 +389,7 @@
   font-family: "Cormorant", serif;
   font-size: 36px;
   font-weight: 300;
-  color: #7c3aed;
+  color: #a78bfa;
   line-height: 1;
 }
 
@@ -393,7 +397,7 @@
   font-family: "Montserrat", sans-serif;
   font-size: 9px;
   font-weight: 400;
-  color: #aaa;
+  color: rgba(200, 185, 240, 0.45);
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
@@ -416,7 +420,7 @@
   font-size: 7px;
   font-weight: 600;
   letter-spacing: 0.2em;
-  color: #aaa;
+  color: rgba(200, 185, 240, 0.4);
   text-transform: uppercase;
 }
 
@@ -424,14 +428,14 @@
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
   font-weight: 500;
-  color: #1a1a1a;
+  color: #e8e0ff;
   letter-spacing: 0.05em;
 }
 
 .cert-footer-divider {
   width: 1px;
   height: 28px;
-  background: #e0e0e0;
+  background: rgba(124, 58, 237, 0.25);
 }
 
 /* ===== ОБРАТНАЯ СТОРОНА ===== */
@@ -463,7 +467,7 @@
 .cert-qr-img {
   width: 108px;
   height: 108px;
-  border: 1px solid #e8e8e8;
+  border: 1px solid rgba(167, 139, 250, 0.2);
   border-radius: 6px;
   display: block;
 }
@@ -491,17 +495,17 @@
   font-family: "Montserrat", sans-serif;
   font-size: 10px;
   font-weight: 400;
-  color: #555;
+  color: rgba(220, 210, 255, 0.7);
   letter-spacing: 0.02em;
 }
 
 .cert-contact-icon {
-  color: #7c3aed;
+  color: #a78bfa;
   flex-shrink: 0;
 }
 
 .cert-contact-separator {
-  color: #ccc;
+  color: rgba(124, 58, 237, 0.3);
   font-size: 16px;
   line-height: 1;
 }
@@ -514,13 +518,13 @@
   font-family: "Montserrat", sans-serif;
   font-size: 10px;
   font-weight: 400;
-  color: rgba(200, 185, 240, 0.4);
+  color: #b8aad8;
   letter-spacing: 0.1em;
   transition: color 0.2s;
 }
 
 .certificate-scene:hover .cert-flip-hint {
-  color: rgba(200, 185, 240, 0.8);
+  color: #7c3aed;
 }
 
 /* ===== АДАПТИВ ===== */
